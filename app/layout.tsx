@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { Inter,Anek_Telugu } from "next/font/google";
 import "./globals.css";
+import { GeistSans } from "geist/font/sans";
 
-const inter = Inter({ subsets: ["latin"] });
+const anekTelugu = Anek_Telugu ({ subsets: ["latin"],
+  variable: "--font-caption"
+ });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="h-full">
+      <body className={cn(GeistSans.variable, anekTelugu, "font-sans h-full bg-background text-bacground")}>{children}</body>
     </html>
   );
 }
